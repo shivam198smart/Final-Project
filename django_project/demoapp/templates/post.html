@@ -1,0 +1,43 @@
+<html>
+<body>
+	<style>
+		body{
+		
+		background:url('http://wallpapercave.com/wp/9XPQEzF.jpg');
+		background-size:cover;
+		#a{
+			padding-top: 2cm;
+		}
+
+	</style>
+</body>
+<div align="center" >
+<body>
+	
+	<div id="a">
+	</br>
+	<h3>{{no_caption}}</h3>
+	<h3>{{no_post}}</h3>
+	</br>
+	
+	
+	<form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+	 
+	  <p><b>CHOOSE-FILE: <input type="file" name="image" value="{{image}}">
+	  
+
+	  <b>CAPTION: <input type="text" name="caption" value="{{caption}}">
+	  <br/>
+	  </br>
+	  </br>
+
+      <input type="submit" class="btn btn-default" value="POST">
+   </form>
+   </div>
+
+
+
+</body>
+</div>
+</html>

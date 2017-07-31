@@ -1,0 +1,96 @@
+<html>
+<head>
+<style>
+body{
+background: -webkit-linear-gradient(#FFAFBD,#ffc3a0);
+<!--background: rgb(245,222,179);-->
+}
+img{
+height:500px;
+width: 500px;
+}
+.a{
+height:50px;
+width: 120px;
+}
+.b{
+float: right;
+}
+.c{
+float: left;
+}
+.l{
+	border-radius: 25px;
+	color:white;
+	background-color:black;
+	
+}
+</style>
+</head>
+<body>
+<div class="hey">
+<a href="/logout/"><input class="a b l" type="submit" value="Log-out"></a>
+<a href="/feed/"><input  class="a c l" type="submit" value="upload-post"></a>
+</div>
+	<div align=center>
+	
+    {% for post in posts %}
+   <br>
+   <br>
+   <br>
+   <br>
+   <hr>
+        <h3>
+          <u>Posted by</u>: <i>{{ post.user.username }}</i>
+        </h3>
+		<!--Image:-->
+        <img src="{{ post.image_url }}">
+		<br>
+		<div id="a">
+        <span >		
+        Caption:   {{ post.caption }}
+        </span>
+		</div>
+		<br>
+	 <form method="POST" action="/like/">
+              {% csrf_token %}
+              <input type="hidden" name="post" value="{{post.id}}" />
+                {% if post.has_liked %}
+                <i><input type="submit" value="Unlike"></i>
+                {% else %}
+                <i><input type="submit" value="Like"></i>
+                {% endif %}
+     </form>
+	 <div>
+		    <h2>
+		    <strong>Likes</strong> : <i>{{ post.check_likes}}</i>
+		    </h2>
+	</div>
+	<div>
+            <form method="POST" action="/comment/">
+                {% csrf_token %}
+                <input type="hidden" name="post" value="{{ post.id }}" />
+                <input type="text" name="comment_text" id="comment_text" placeholder="Make a comment.." value="{{ comment_text }}">
+                {{ comment_text }}
+                <input type="submit" class="btn-default btn">
+            </form>
+			
+        </div>
+
+        <div>
+            {% for comment in post.comments %}
+                <p><b><i>{{ comment.user.username }} [{{ comment.created_on }}]:</b></i> {{ comment.comment_text }}</p>
+            {% endfor %}
+			
+        </div>
+			
+	{% endfor %}
+	
+	
+	
+	
+	</div>
+
+
+</body>
+</html>

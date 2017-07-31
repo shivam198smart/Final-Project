@@ -1,0 +1,55 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+    		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    		<meta name="viewport" content="width=device-width, initial-scale=1">		
+
+		<title>Instagram Signup</title>
+		<!--Custom css file-->
+		<link rel="stylesheet" href="css/styles.css">
+		<!--Bootstrap css-->
+		<link rel="stylesheet" href="css/bootstrap.css">
+	</head>
+	<body>
+		
+			<h1 align=center>Instagram Clone</h1>
+			<h3 align=center>Sign Up!!!</h3>
+	
+		
+		<div align=center>
+			<form method="post">
+				{% csrf_token %}
+					<table>
+						<tr>
+							<td><label for="name">Name: </label></td>
+							<td><input type="text" id="name" name="Name" placeholder="          Name" value="{{name}}"></td>
+						</tr>
+						<tr>
+							<td><label for="Username">User-name: </label></td>
+							<td><input type="text" id="Username" name="username" placeholder="          username" value="{{username}}"></td>
+						</tr>
+						<tr>
+							<td><label for="pass">Password: </label></td>
+							<td><input type="password" id="pass" name="password" placeholder="           *******" value="{{password}}"></td>
+						</tr>
+						<tr>
+							<td><label for="Email">Email: </label></td>
+							<td><input type="email" id="Email" name="email" placeholder="		@gmail.com" value="{{email}}"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><p style="text-align: center;"><input type="submit" value="Submit"></p></td>
+							
+						</tr>
+					</table>
+		</form>
+		</div>
+
+		<!--Javascript files.-->
+		<!--Jquery library-->
+		<script src="js/javascript-3.2.1.js"></script>
+		<!--Bootstrap Javascript-->
+		<script src="js/bootstrap.js"></script>
+	</body>
+</html>
